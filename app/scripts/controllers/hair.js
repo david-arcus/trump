@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('trumpApp').controller('HairController', function($scope, close) {
+angular.module('trumpApp').controller('HairController', function($scope, close, updateCanvas) {
 
 //  console.log('hi');
   
@@ -12,6 +12,8 @@ angular.module('trumpApp').controller('HairController', function($scope, close) 
   $scope.addHairToCanvas = function(hairId) {
     
     console.log('hair id: ' + hairId);
+    
+    updateCanvas.hair();
     
   };
 

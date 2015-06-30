@@ -11,9 +11,7 @@ angular.module('trumpApp').controller('HairController', function($scope, close, 
   
   $scope.addHairToCanvas = function(hairId) {
     
-    console.log('hair id: ' + hairId);
-    
-    updateCanvas.hair();
+    updateCanvas.hair(hairId);
     
   };
 

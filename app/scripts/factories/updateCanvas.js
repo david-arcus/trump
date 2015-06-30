@@ -13,9 +13,9 @@ angular.module('trumpApp').factory('updateCanvas', function() {
         /**
          * draw a square on the canvas
          */
-        hair: function() {
+        hair: function(hairId) {
             if (canvas.getContext) {
-                console.log('updating hair');
+                console.log('updating hair with id: ' + hairId);
                 //clear the canvas
                 ctx.clearRect(20,20, canvas.width, canvas.height);
 

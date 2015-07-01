@@ -1,9 +1,6 @@
 'use strict';
 
 angular.module('trumpApp').factory('updateCanvas', function() {
-
-      var canvas = document.getElementById('the-don');
-      var ctx = canvas.getContext('2d');
   
       var getRandomInt = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -14,6 +11,8 @@ angular.module('trumpApp').factory('updateCanvas', function() {
          * draw a square on the canvas
          */
         hair: function() {
+            var canvas = document.getElementById('the-don');
+            var ctx = canvas.getContext('2d');
             if (canvas.getContext) {
                 console.log('updating hair');
                 //clear the canvas
@@ -23,6 +22,8 @@ angular.module('trumpApp').factory('updateCanvas', function() {
             }
         },
         eyes: function() {
+            var canvas = document.getElementById('the-don');
+            var ctx = canvas.getContext('2d');
             if (canvas.getContext) {
                 console.log('updating eyes');
                 //clear the canvas

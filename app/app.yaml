@@ -1,0 +1,69 @@
+application: trumpsformation
+version: 1
+runtime: php55
+api_version: 1
+ 
+default_expiration: "30d"
+
+handlers:
+
+- url: /styles/(.*\.(css))
+  mime_type: text/css
+  static_files: styles/\1
+  upload: styles/(.*\.css)
+  
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: \1
+  upload: (.*\.html)
+  expiration: "1h"
+
+- url: /(.*\.ico)
+  mime_type: image/x-icon
+  static_files: \1
+  upload: (.*\.ico)
+  expiration: "7d"
+  
+- url: /scripts/(.*\.(js))
+  mime_type: text/javascript
+  static_files: scripts/\1
+  upload: scripts/(.*\.js)
+
+# image files
+- url: /images/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: images/\1
+  upload: images/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  
+- url: /(.*\.txt)
+  mime_type: text/plain
+  static_files: \1
+  upload: (.*\.txt)
+  
+- url: /views/(.*\.html)
+  mime_type: text/html
+  static_files: views/\1
+  upload: views/(.*\.html)
+  expiration: "1h"
+  
+- url: /templates/(.*\.html)
+  mime_type: text/html
+  static_files: templates/\1
+  upload: templates/(.*\.html)
+  expiration: "1h"
+  
+  # index files
+- url: /(.+)/
+  static_files: \1/index.html
+  upload: (.+)/index.html
+  expiration: "15m"
+ 
+- url: /(.+)
+  static_files: \1/index.html
+  upload: (.+)/index.html
+  expiration: "15m"
+ 
+# site root
+- url: /
+  static_files: index.html
+  upload: index.html
+  expiration: "15m"

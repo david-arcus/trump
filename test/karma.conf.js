@@ -32,6 +32,7 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-modal-service/dst/angular-modal-service.js',
+      'bower_components/EaselJS/lib/easeljs-0.8.1.combined.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

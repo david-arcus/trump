@@ -33,4 +33,17 @@ angular.module('trumpApp')
 
     };
   
+    $scope.showDrawModal = function() {
+      
+      ModalService.showModal({
+        templateUrl: 'templates/draw.html',
+        controller: 'DrawController'
+      }).then(function(modal) {
+        modal.close.then(function() {
+          
+        });
+      });
+
+    };
+  
   });

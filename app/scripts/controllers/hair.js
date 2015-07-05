@@ -10,9 +10,8 @@ angular.module('trumpApp').controller('HairController', function($scope, close, 
  };
   
   $scope.addHairToCanvas = function(hairId) {
-    
     updateCanvas.hair(hairId);
-    
+    $scope.closeModal();
   };
 
 });

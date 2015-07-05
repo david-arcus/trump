@@ -1,14 +1,20 @@
-<p>main view</p>
+<div class="container">
 
-<div class="canvas-container">
+  <p>main view</p>
 
-  <canvas id="the-don" width="570" height="760"></canvas>
-  
-  <div class="tools">
-    <ul>
-      <li><span class="pointer" ng-click="showHairModal()">hair</span></li>
-      <li><span class="pointer" ng-click="showEyesModal()">eyes</span></li>
-    </ul>
+  <div class="canvas-container">
+
+    <!--<canvas id="the-don" width="570" height="760"></canvas>-->
+    <draw-on-canvas></draw-on-canvas>
+
   </div>
   
+</div>
+
+<div class="tools">
+  <ul>
+    <li><span class="pointer" ng-click="showHairModal()">hair</span></li>
+    <li><span class="pointer" ng-click="showEyesModal()">eyes</span></li>
+    <li><span class="pointer" ng-click="showDrawModal()">paint</span></li>
+  </ul>
 </div>

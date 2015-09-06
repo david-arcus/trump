@@ -1,6 +1,6 @@
 {
-  "name": "trump2",
-  "version": "0.0.0",
+  "name": "trump",
+  "version": "0.0.1",
   "dependencies": {},
   "scripts": {
     "test": "gulp test"

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('trump2')
+    .module('trump')
     .config(routeConfig);
 
   function routeConfig($routeProvider) {

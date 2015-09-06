@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('trump', ['ngTouch', 'ngSanitize', 'ngRoute']);
+    .module('trump', ['ngTouch', 'ngSanitize', 'ngRoute', 'angularModalService']);
 
 })();

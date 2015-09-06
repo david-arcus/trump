@@ -12,6 +12,10 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
+      .when('/credits', {
+        templateUrl: 'app/credits/credits.html',
+        controller: 'CreditsController',
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -10,6 +10,12 @@
   /** @ngInject */
   function updateCanvas($log) {
     
+    var canvas = document.getElementById('the-don');  
+    var stage = new createjs.Stage(canvas);
+    var drawingCanvas = new createjs.Shape();
+    
+    $log.debug(drawingCanvas);
+    
     var getRandomInt = function(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     };
@@ -19,6 +25,10 @@
        * draw a square on the canvas
        */
       hair: function(hairId) {
+        
+        
+        /*
+        
         var canvas = document.getElementById('the-don');
         var ctx = canvas.getContext('2d');
 
@@ -30,6 +40,9 @@
 
           ctx.fillRect(getRandomInt(20, 50), getRandomInt(50,100), 100, 100);
         }
+        
+        */
+        
       },
       eyes: function() {
         var canvas = document.getElementById('the-don');

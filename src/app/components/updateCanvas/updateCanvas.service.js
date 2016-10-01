@@ -27,7 +27,7 @@
       hair: function(hairId) {
         
         
-        /*
+        
         
         var canvas = document.getElementById('the-don');
         var ctx = canvas.getContext('2d');
@@ -41,7 +41,7 @@
           ctx.fillRect(getRandomInt(20, 50), getRandomInt(50,100), 100, 100);
         }
         
-        */
+        
         
       },
       eyes: function() {

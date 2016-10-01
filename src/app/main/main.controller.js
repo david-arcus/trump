@@ -6,11 +6,13 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $log, ModalService) {
+  function MainController($log, ModalService) {
+    
+    var vm = this;
    
     $log.debug('Main');
     
-    $scope.showHairModal = function() {
+    vm.showHairModal = function() {
       
       // Just provide a template url, a controller and call 'showModal'.
       ModalService.showModal({
@@ -28,7 +30,7 @@
 
     };
   
-    $scope.showDrawModal = function() {
+    vm.showDrawModal = function() {
       
       ModalService.showModal({
         templateUrl: 'templates/draw.html',

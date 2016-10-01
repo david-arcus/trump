@@ -13,77 +13,140 @@
     var directive = {
         restrict : 'EAC',
         replace : true,
-        template: '<canvas id="the-don" width="570" height="760"></canvas>',
+        template: '<canvas id="the-don" width="550" height="586"></canvas>',
         link: function (scope, element, attribute) {
           
           init();  
 
-          var canvas, stage;
+          var canvas, stage, container;
           var drawingCanvas;
-          var oldPt;
-          var oldMidPt;
-          var title;
-          var color;
-          var stroke;
-          var colors;
-          var index;
+          var queue;
+          var update = true;
+          
+          function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+
+          function stop() {
+	           createjs.Ticker.removeEventListener("tick", tick);
+          }
+
+          function tick(event) {
+            // this set makes it so the stage only re-renders when an event handler indicates a change has happened.
+            if (update) {
+              update = false; // only update once
+              stage.update(event);
+            }
+          }
 
           function init() {
             
-            $log.debug('canvas init');
+            $log.debug('canvas init');        
+            
             canvas = document.getElementById('the-don');
-            index = 0;
-            colors = ['#828b20', '#b0ac31', '#cbc53d', '#fad779', '#f9e4ad', '#faf2db', '#563512', '#9b4a0b', '#d36600', '#fe8a00', '#f9a71f'];
-
-            //check to see if we are running in a browser with touch support
+            
             stage = new createjs.Stage(canvas);
+                        
             stage.autoClear = false;
-            stage.enableDOMEvents(true);
+            //stage.enableDOMEvents(true);
 
             createjs.Touch.enable(stage);
             createjs.Ticker.setFPS(24);
+            
+            // load our initial assets
+            
+            queue = new createjs.LoadQueue();
+            queue.on('complete', handleComplete, this);
+            
+            //$log.debug(queue);
+            
+            queue.loadManifest([
+              {id: 'brush', src:'../../assets/images/hair3.png'},
+              {id: 'don', src:'../../assets/images/don_bald.png'}
+            ]);
 
-            drawingCanvas = new createjs.Shape();
+            
+            
+            // brush = new createjs.Bitmap("../../assets/images/hair3.png");
+            // don = new createjs.Bitmap("../../assets/images/don_bald.png");
+            
+            // stage.addChild(don);
+            
+           
+          }
 
+          function handleComplete() {
+            //var don = queue.getResult('don');
+            //stage.addChild(don);
             stage.addEventListener('stagemousedown', handleMouseDown);
             stage.addEventListener('stagemouseup', handleMouseUp);
+            createjs.Ticker.addEventListener("tick", tick);
+            
+            
+            $log.debug('load complete');
+            var donImage = queue.getResult('don');
+            var brushImage = queue.getResult('brush');
+            var container = new createjs.Container();
+            var brush;
+	          stage.addChild(container);
+            
+            var don = new createjs.Bitmap(donImage);
+            
+            // $log.debug(queue);
+            //stage.addChild(don);
 
-            stage.addChild(drawingCanvas);
-            stage.update();
-          }
+            //don.scaleX = 0.5;
+            //don.scaleY = 0.5;
 
-          function handleMouseDown(event) {
-            if (!event.primary) { return; }
-            if (stage.contains(title)) {
-              stage.clear();
-              stage.removeChild(title);
+            //stage.update();
+            
+            function handleMouseDown(event) {
+              
+              if (!event.primary) { return; }
+
+              stage.addEventListener('stagemousemove', handleMouseMove);
+
+
             }
-            color = colors[(index++) % colors.length];
-            stroke = Math.random() * 30 + 10 | 0;
-            oldPt = new createjs.Point(stage.mouseX, stage.mouseY);
-            oldMidPt = oldPt.clone();
-            stage.addEventListener('stagemousemove', handleMouseMove);
+
+            function handleMouseMove(event) {
+              
+              if (!event.primary) { return; }
+              
+
+              //for (var i=1; i<=20; i++) {
+
+                var scale = Math.random();
+                brush = new createjs.Bitmap(brushImage);
+
+                brush.x = stage.mouseX + getRandomInt(-30, 30);
+                brush.y = stage.mouseY + getRandomInt(-30, 30);
+                brush.rotation = getRandomInt(0, 360);
+                brush.scaleX = scale;
+                brush.scaleY = scale;
+
+                container.addChild(brush);
+              
+                update = true;
+
+
+                //stage.update();            
+                // brush.alpha = Math.random() * (1 - 0.5) + 0.1;
+
+              //$log.debug(stage.getNumChildren());
+
+              //}
+
+
+            }
+
+            function handleMouseUp(event) {
+              if (!event.primary) { return; }
+              stage.removeEventListener('stagemousemove', handleMouseMove);
+            }
+            
           }
-
-          function handleMouseMove(event) {
-            if (!event.primary) { return; }
-            var midPt = new createjs.Point(oldPt.x + stage.mouseX >> 1, oldPt.y + stage.mouseY >> 1);
-
-            drawingCanvas.graphics.clear().setStrokeStyle(stroke, 'round', 'round').beginStroke(color).moveTo(midPt.x, midPt.y).curveTo(oldPt.x, oldPt.y, oldMidPt.x, oldMidPt.y);
-
-            oldPt.x = stage.mouseX;
-            oldPt.y = stage.mouseY;
-
-            oldMidPt.x = midPt.x;
-            oldMidPt.y = midPt.y;
-
-            stage.update();
-          }
-
-          function handleMouseUp(event) {
-            if (!event.primary) { return; }
-            stage.removeEventListener('stagemousemove', handleMouseMove);
-          }
+          
        }
       
     }

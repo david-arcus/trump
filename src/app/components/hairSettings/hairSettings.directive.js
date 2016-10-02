@@ -28,13 +28,13 @@
 
       var vm = this;
 
-      vm.hairSize = 1;
+      vm.hairLength = 0.8;
       vm.hairType = 'curly';
       vm.hairColour = 'brunette';
 
       //$scope.$emit('hairSize', vm.hairSize);
 
-      $scope.$watchGroup(['vm.hairSize', 'vm.hairType', 'vm.hairColour'], function change(value) {
+      $scope.$watchGroup(['vm.hairLength', 'vm.hairType', 'vm.hairColour'], function change(value) {
         $scope.$emit('hairSettings', value);
       });
 

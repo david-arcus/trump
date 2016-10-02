@@ -32,8 +32,10 @@
       vm.hairType = 'curly';
       vm.hairColour = 'brunette';
 
-      //$scope.$emit('hairSize', vm.hairSize);
-
+      vm.clearHair = function() {
+        $scope.$emit('clearHair', true);  
+      }
+      
       $scope.$watchGroup(['vm.hairLength', 'vm.hairType', 'vm.hairColour'], function change(value) {
         $scope.$emit('hairSettings', value);
       });

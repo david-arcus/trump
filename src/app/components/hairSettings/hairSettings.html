@@ -7,7 +7,9 @@
   <p>hair colour</p>
   <input type="radio" name="hairColour" value="brunette" id="brunette" ng-model="vm.hairColour"><label for="brunette">brunete</label>
   <input type="radio" name="hairColour" value="ginger" id="ginger" ng-model="vm.hairColour"><label for="ginger">ginger</label>
-  <input type="radio" name="hairColour" value="blonde" id="blonde" ng-model="vm.hairColour"><label for="blonde">blonde</label><br />
+  <input type="radio" name="hairColour" value="blonde" id="blonde" ng-model="vm.hairColour"><label for="blonde">blonde</label>
+  <br />
+  <p ng-click="vm.clearHair()">clear hair</p>
   <!-- {{vm.hairSize}}
   {{vm.hairType}}
   {{vm.hairColour}} -->

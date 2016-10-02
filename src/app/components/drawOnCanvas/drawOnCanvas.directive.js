@@ -33,7 +33,7 @@
       var vm = this;
       var canvas, stageStatic, stageDrawing;
       var loader, manifest;
-      var don, brush, hairCurlyBrunette, hairCurlyBlonde, hairCurlyGinger, hairStubblyBrunette, hairStubblyBlonde, hairStubblyGinger;
+      var don, brush, hairCurlyBrunette, hairCurlyBlonde, hairCurlyGinger;
       var hairLength, hairType, hairColour;
 
       $scope.$on('hairSettings', function(e, data){
@@ -42,6 +42,10 @@
         // hairType = data[1];
         hairColour = data[2];
 
+      });
+      
+      $scope.$on('clearHair', function(e, data) {
+        stageDrawing.clear();
       });
 
       function getRandomInt(min, max) {
@@ -101,24 +105,35 @@
         if (!event.primary) { return; }
 
         stageDrawing.addEventListener('stagemousemove', handleMouseMove);
+        
+        switch(hairColour) {
+          case('brunette'):
+            brush = hairCurlyBrunette;
+            break;
+          case('ginger'):
+            brush = hairCurlyGinger;
+            break;
+          case('blonde'):
+            brush = hairCurlyBlonde;
+            break;
+        }
+
 
       }
 
       function handleMouseMove(event) {
-
-        //$log.debug(hairLength);
-
+        
         if (!event.primary) { return; }
-
-        brush = hairCurlyGinger;
-
+                  
         var follicles = hairLength > 0.5 ? 20 : 40;
 
         //$log.debug(follicles);
 
-        for (var i=1; i<=20; i++) {
+        for (var i=1; i<=follicles; i++) {
 
           var scale = Math.random() * hairLength;
+          
+          stageDrawing.addChild(brush);
 
           brush.x = stageDrawing.mouseX + getRandomInt(-20, 20);
           brush.y = stageDrawing.mouseY + getRandomInt(-20, 20);
@@ -126,12 +141,11 @@
           brush.scaleX = scale;
           brush.scaleY = scale;
 
-          stageDrawing.addChild(brush);
           stageDrawing.update();
           // brush.alpha = Math.random() * (1 - 0.5) + 0.1;
 
         }
-
+                  
       }
 
       function handleMouseUp(event) {

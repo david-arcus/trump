@@ -5,7 +5,7 @@
     .module('trump')
     .config(routeConfig);
 
-  function routeConfig($routeProvider) {
+  function routeConfig($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'app/main/main.html',
@@ -15,10 +15,13 @@
       .when('/credits', {
         templateUrl: 'app/credits/credits.html',
         controller: 'CreditsController',
+        controllerAs: 'credits'
       })
       .otherwise({
         redirectTo: '/'
       });
+
+      $locationProvider.html5Mode(true);
   }
 
 })();

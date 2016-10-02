@@ -2,24 +2,11 @@
 
 <div class="container">
 
-  <p>main view</p>
+  <draw-on-canvas></draw-on-canvas>
+  <hair-settings></hair-settings>
 
-  <div class="canvas-container">
-
-    <draw-on-canvas></draw-on-canvas>
-
-  </div>
-  
 </div>
 
-<div class="tools">
-  <ul>
-    <li><span class="pointer" ng-click="main.showHairModal()">hair</span></li>
-    <li><span class="pointer" ng-click="main.showEyesModal()">eyes</span></li>
-    <li><span class="pointer" ng-click="main.showMouthModal()">mouth</span></li>
-    <li><span class="pointer" ng-click="main.showTanModal()">tan</span></li>
-    <li><span class="pointer" ng-click="main.showDrawModal()">paint</span></li>
-  </ul>
-</div>
+<tools></tools>
 
 <div ng-include src="'app/includes/footer.html'"></div>

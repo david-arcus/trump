@@ -8,154 +8,142 @@
     .directive('drawOnCanvas', drawOnCanvas);
 
   /** @ngInject */
-  function drawOnCanvas($log) {
+  function drawOnCanvas() {
 
     var directive = {
-        restrict : 'EAC',
-        replace : true,
-        template: '<canvas id="the-don" width="550" height="586"></canvas>',
-        link: function (scope, element, attribute) {
-
-          init();
-
-          var canvas, stage, container;
-          var drawingCanvas;
-          var queue;
-          var update = true;
-
-          function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-          }
-
-          function stop() {
-	           createjs.Ticker.removeEventListener("tick", tick);
-          }
-
-          function tick(event) {
-            // this set makes it so the stage only re-renders when an event handler indicates a change has happened.
-            if (update) {
-              update = false; // only update once
-              stage.update(event);
-            }
-          }
-
-          function init() {
-
-            $log.debug('canvas init');
-
-            canvas = document.getElementById('the-don');
-
-            stage = new createjs.Stage(canvas);
-
-            //stage.autoClear = false;
-            //stage.enableDOMEvents(true);
-
-            createjs.Touch.enable(stage);
-            createjs.Ticker.setFPS(24);
-
-            // load our initial assets
-
-            queue = new createjs.LoadQueue();
-            queue.on('complete', handleComplete, this);
-
-            //$log.debug(queue);
-
-            queue.loadManifest([
-              {id: 'brush', src:'../../assets/images/hair3.png'},
-              {id: 'don', src:'../../assets/images/don_bald.png'}
-            ]);
+      //restrict : 'EAC',
+      replace : true,
+      templateUrl: 'app/components/drawOnCanvas/drawOnCanvas.html',
+      controller: DrawOnCanvasController,
+      controllerAs: 'vm',
+      link: function (scope, elem, attr) {
 
 
-
-            // brush = new createjs.Bitmap("../../assets/images/hair3.png");
-            // don = new createjs.Bitmap("../../assets/images/don_bald.png");
-
-            // stage.addChild(don);
-
-
-          }
-
-          function handleComplete() {
-            //var don = queue.getResult('don');
-            //stage.addChild(don);
-            stage.addEventListener('stagemousedown', handleMouseDown);
-            stage.addEventListener('stagemouseup', handleMouseUp);
-            createjs.Ticker.addEventListener("tick", tick);
-
-
-            $log.debug('load complete');
-            var donImage = queue.getResult('don');
-            var brushImage = queue.getResult('brush');
-            var container = new createjs.Container();
-            var brush;
-	          stage.addChild(container);
-
-            var don = new createjs.Bitmap(donImage);
-
-            // $log.debug(queue);
-            stage.addChild(don);
-
-            don.scaleX = 0.5;
-            don.scaleY = 0.5;
-
-            //stage.update();
-
-            function handleMouseDown(event) {
-
-              if (!event.primary) { return; }
-
-              stage.addEventListener('stagemousemove', handleMouseMove);
-
-
-            }
-
-            function handleMouseMove(event) {
-
-              if (!event.primary) { return; }
-
-
-              for (var i=1; i<=20; i++) {
-
-                var scale = Math.random();
-                brush = new createjs.Bitmap(brushImage);
-
-                brush.x = stage.mouseX + getRandomInt(-30, 30);
-                brush.y = stage.mouseY + getRandomInt(-30, 30);
-                brush.rotation = getRandomInt(0, 360);
-                brush.scaleX = scale;
-                brush.scaleY = scale;
-
-                container.addChild(brush);
-
-                update = true;
-
-
-                //stage.update();
-                // brush.alpha = Math.random() * (1 - 0.5) + 0.1;
-
-              //$log.debug(stage.getNumChildren());
-
-              }
-
-
-            }
-
-            function handleMouseUp(event) {
-              if (!event.primary) { return; }
-              stage.removeEventListener('stagemousemove', handleMouseMove);
-            }
-
-          }
-
-       }
+      }
 
     }
 
     return directive;
 
     /** @ngInject */
-    function ExampleController() {
+    function DrawOnCanvasController($scope, $log) {
 
+      init();
+
+      var vm = this;
+      var canvas, stageStatic, stageDrawing;
+      var loader, manifest;
+      var don, brush, hairCurlyBrunette, hairCurlyBlonde, hairCurlyGinger, hairStubblyBrunette, hairStubblyBlonde, hairStubblyGinger;
+      var hairSize, hairType, hairColour;
+
+      $scope.$on('hairSettings', function(e, data){
+
+        hairSize = data[0];
+        hairType = data[1];
+        hairColour = data[2];
+
+      });
+
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function init() {
+
+        stageStatic = new createjs.Stage('the-don');
+        stageDrawing = new createjs.Stage('the-don');
+        stageDrawing.autoClear = false;
+
+        createjs.Touch.enable(stageDrawing, stageStatic);
+
+        // load our initial assets
+
+        manifest = [
+          {id: 'hairCurlyBrunette', src:'hair_curly_brunette.png'},
+          {id: 'hairCurlyBlonde', src:'hair_curly_blonde.png'},
+          {id: 'hairCurlyGinger', src:'hair_curly_ginger.png'},
+          {id: 'hairStubblyBrunette', src:'hair_stubbly_brunette.png'},
+          {id: 'hairStubblyBlonde', src:'hair_stubbly_blonde.png'},
+          {id: 'hairStubblyGinger', src:'hair_stubbly_ginger.png'},
+          {id: 'don', src:'don_bald.png'}
+        ];
+
+        loader = new createjs.LoadQueue(false);
+        loader.addEventListener('complete', handleComplete);
+        loader.loadManifest(manifest, true, '../../assets/images/');
+
+
+      }
+
+      function handleComplete() {
+
+        don = new createjs.Bitmap(loader.getResult('don'));
+        don.scaleX = 0.5;
+        don.scaleY = 0.5;
+        hairCurlyBrunette = new createjs.Bitmap(loader.getResult('hairCurlyBrunette'));
+        hairCurlyBlonde = new createjs.Bitmap(loader.getResult('hairCurlyBlonde'));
+        hairCurlyGinger = new createjs.Bitmap(loader.getResult('hairCurlyGinger'));
+        hairStubblyBrunette = new createjs.Bitmap(loader.getResult('hairStubblyBrunette'));
+        hairStubblyBlonde = new createjs.Bitmap(loader.getResult('hairStubblyBlonde'));
+        hairStubblyGinger = new createjs.Bitmap(loader.getResult('hairStubblyGinger'));
+
+        stageStatic.addChild(don);
+        stageStatic.update();
+
+        stageDrawing.addEventListener('stagemousedown', handleMouseDown);
+        stageDrawing.addEventListener('stagemouseup', handleMouseUp);
+
+
+        // hairSize = data[3];
+        //
+        // if (data[1] == 'curly' && data[2] == 'brunette') {
+        //   $log.debug('hairCurlyBrunette');
+        // }
+        //
+        $log.debug(hairSize + hairType + hairColour);
+
+
+      }
+
+      function handleMouseDown(event) {
+
+        if (!event.primary) { return; }
+
+        stageDrawing.addEventListener('stagemousemove', handleMouseMove);
+
+      }
+
+      function handleMouseMove(event) {
+
+        if (!event.primary) { return; }
+
+        brush = hairCurlyBrunette;
+
+        for (var i=1; i<=20; i++) {
+
+          var scale = Math.random() * hairSize;
+
+          brush.x = stageDrawing.mouseX + getRandomInt(-20, 20);
+          brush.y = stageDrawing.mouseY + getRandomInt(-20, 20);
+          brush.rotation = getRandomInt(0, 360);
+          brush.scaleX = scale;
+          brush.scaleY = scale;
+
+          stageDrawing.addChild(brush);
+
+          stageDrawing.update();
+          // brush.alpha = Math.random() * (1 - 0.5) + 0.1;
+
+        }
+
+      }
+
+      function handleMouseUp(event) {
+
+        if (!event.primary) { return; }
+        stageDrawing.removeEventListener('stagemousemove', handleMouseMove);
+
+      }
 
     }
 

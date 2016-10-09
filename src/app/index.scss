@@ -4,16 +4,13 @@
 // endbower
 
 html {
-  height:100%;
+  background:#003f76 url(../assets/images/bg.jpg) no-repeat bottom center fixed;
+  background-size:cover;
 }
-
 body {
-  height:100%;
   margin:0;
   padding:0;
-  background:url(../assets/images/bg.jpg) no-repeat center;
   font-family: sans-serif;
-  box-sizing: border-box;
   // overflow-x:hidden;
 }
 

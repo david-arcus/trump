@@ -9,7 +9,9 @@ header {
   .trumpsformation {
     max-width:700px;
     width:100%;
-    margin:20px auto;
+    margin:0px auto;
+    padding:20px 0px;
+    box-sizing: border-box;
   }
 
   .corporate-swoosh {
@@ -19,7 +21,7 @@ header {
 
   @media screen and (max-width: 760px) {
     .trumpsformation {
-      margin:10px auto 20px auto;
+      padding:10px 0 20px 0;
     }
 
     .corporate-swoosh {
@@ -32,7 +34,7 @@ header {
   @media screen and (max-width: 520px) {
 
     .trumpsformation {
-      margin:10px auto;
+      padding:10px;
     }
 
     .corporate-swoosh {

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  // creates a canvas element using easelJS that can have things drawn on it
+  // hair settings
 
   angular
     .module('trump')
@@ -33,9 +33,9 @@
       vm.hairColour = 'brunette';
 
       vm.clearHair = function() {
-        $scope.$emit('clearHair', true);  
+        $scope.$emit('clearHair', true);
       }
-      
+
       $scope.$watchGroup(['vm.hairLength', 'vm.hairType', 'vm.hairColour'], function change(value) {
         $scope.$emit('hairSettings', value);
       });

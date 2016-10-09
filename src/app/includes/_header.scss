@@ -1,0 +1,69 @@
+header {
+  width:100%;
+
+  img {
+    width:100%;
+    height:auto;
+  }
+
+  .trumpsformation {
+    max-width:700px;
+    width:100%;
+    margin:20px auto;
+  }
+
+  .corporate-swoosh {
+    width:200px;
+    margin:20px auto;
+  }
+
+  @media screen and (max-width: 760px) {
+    .trumpsformation {
+      margin:10px auto 20px auto;
+    }
+
+    .corporate-swoosh {
+
+      width:100px;
+
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+
+    .trumpsformation {
+      margin:10px auto;
+    }
+
+    .corporate-swoosh {
+
+      margin:10px auto;
+
+    }
+
+  }
+
+
+  .eclipse {
+    position: absolute;
+    width:100%;
+    height:633px;
+    top:-40px;
+    left:50%;
+    transform:translateX(-50%);
+    background:url('../../assets/images/eclipse.png') no-repeat center;
+    z-index: -1;
+  }
+
+  @media screen and (max-width: 760px) {
+    .eclipse {
+      top:-70px;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .eclipse {
+      top:-100px;
+    }
+  }
+}

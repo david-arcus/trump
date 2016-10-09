@@ -1,0 +1,33 @@
+.canvas-container {
+  margin:0px auto 50px auto;
+  width:690px;
+  position:relative;
+
+  .pointer {
+    cursor:pointer;
+  }
+
+  canvas#the-don {
+    margin:0px auto;
+    border:1px solid grey;
+    display:block;
+    //background-image:url('../assets/images/don_bald.jpg');
+    //background-color:#fff;
+    //background-size:100% auto;
+  }
+
+}
+
+@media screen and (max-width: 601px) {
+
+  .canvas-container {
+    width:100%;
+
+    canvas#the-don {
+      width:100%;
+      height:auto;
+    }
+
+  }
+
+}

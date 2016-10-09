@@ -3,18 +3,25 @@
 // bower:scss
 // endbower
 
-body {
-  padding:10px;
-  margin:0;
-  //background:url(../assets/images/bg.jpg) no-repeat top center;
-  //background-size:cover;
+html {
+  height:100%;
 }
-//
-//@media screen and (max-width: 601px) {
-//  body {
-//    padding:10px;
-//  }
-//}
+
+body {
+  height:100%;
+  margin:0;
+  padding:0;
+  background:url(../assets/images/bg.jpg) no-repeat center;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  // overflow-x:hidden;
+}
+
+@media screen and (max-width: 760px) {
+ body {
+   padding:10px;
+ }
+}
 
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject

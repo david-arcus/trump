@@ -5,16 +5,16 @@
 
   angular
     .module('trump')
-    .directive('drawOnCanvas', drawOnCanvas);
+    .directive('trumpCanvas', trumpCanvas);
 
   /** @ngInject */
-  function drawOnCanvas() {
+  function trumpCanvas() {
 
     var directive = {
       //restrict : 'EAC',
       replace : true,
-      templateUrl: 'app/components/drawOnCanvas/drawOnCanvas.html',
-      controller: DrawOnCanvasController,
+      templateUrl: 'app/components/trumpCanvas/trumpCanvas.html',
+      controller: TrumpCanvasController,
       controllerAs: 'vm',
       link: function (scope, elem, attr) {
 
@@ -26,7 +26,7 @@
     return directive;
 
     /** @ngInject */
-    function DrawOnCanvasController($scope, $log) {
+    function TrumpCanvasController($scope, $log) {
 
       init();
 
@@ -43,7 +43,7 @@
         hairColour = data[2];
 
       });
-      
+
       $scope.$on('clearHair', function(e, data) {
         stageDrawing.clear();
       });
@@ -64,7 +64,7 @@
 
         manifest = [
           {id: 'hairCurlyBrunette', src:'hair_curly_brunette.png'},
-          {id: 'hairCurlyBlonde', src:'hair_curly_blonde.png'},
+          //{id: 'hairCurlyBlonde', src:'hair_curly_blonde.png'},
           {id: 'hairCurlyGinger', src:'hair_curly_ginger.png'},
           // {id: 'hairStubblyBrunette', src:'hair_stubbly_brunette.png'},
           // {id: 'hairStubblyBlonde', src:'hair_stubbly_blonde.png'},
@@ -85,7 +85,7 @@
         don.scaleX = 0.5;
         don.scaleY = 0.5;
         hairCurlyBrunette = new createjs.Bitmap(loader.getResult('hairCurlyBrunette'));
-        hairCurlyBlonde = new createjs.Bitmap(loader.getResult('hairCurlyBlonde'));
+        //hairCurlyBlonde = new createjs.Bitmap(loader.getResult('hairCurlyBlonde'));
         hairCurlyGinger = new createjs.Bitmap(loader.getResult('hairCurlyGinger'));
         // hairStubblyBrunette = new createjs.Bitmap(loader.getResult('hairStubblyBrunette'));
         // hairStubblyBlonde = new createjs.Bitmap(loader.getResult('hairStubblyBlonde'));
@@ -105,7 +105,7 @@
         if (!event.primary) { return; }
 
         stageDrawing.addEventListener('stagemousemove', handleMouseMove);
-        
+
         switch(hairColour) {
           case('brunette'):
             brush = hairCurlyBrunette;
@@ -113,18 +113,18 @@
           case('ginger'):
             brush = hairCurlyGinger;
             break;
-          case('blonde'):
-            brush = hairCurlyBlonde;
-            break;
+          // case('blonde'):
+          //   brush = hairCurlyBlonde;
+          //   break;
         }
 
 
       }
 
       function handleMouseMove(event) {
-        
+
         if (!event.primary) { return; }
-                  
+
         var follicles = hairLength > 0.5 ? 20 : 40;
 
         //$log.debug(follicles);
@@ -132,7 +132,7 @@
         for (var i=1; i<=follicles; i++) {
 
           var scale = Math.random() * hairLength;
-          
+
           stageDrawing.addChild(brush);
 
           brush.x = stageDrawing.mouseX + getRandomInt(-20, 20);
@@ -145,7 +145,7 @@
           // brush.alpha = Math.random() * (1 - 0.5) + 0.1;
 
         }
-                  
+
       }
 
       function handleMouseUp(event) {

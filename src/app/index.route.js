@@ -5,7 +5,7 @@
     .module('trump')
     .config(routeConfig);
 
-  function routeConfig($routeProvider, $locationProvider) {
+  function routeConfig($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'app/main/main.html',
@@ -21,7 +21,7 @@
         redirectTo: '/'
       });
 
-      $locationProvider.html5Mode(true);
+      //$locationProvider.html5Mode(true);
   }
 
 })();

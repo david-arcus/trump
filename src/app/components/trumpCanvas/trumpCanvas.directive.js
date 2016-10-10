@@ -46,6 +46,7 @@
 
       $scope.$on('clearHair', function(e, data) {
         stageDrawing.clear();
+        stageStatic.update();
       });
 
       function getRandomInt(min, max) {
@@ -71,8 +72,6 @@
         loader = new createjs.LoadQueue(false);
         loader.addEventListener('complete', handleComplete);
         loader.loadManifest(manifest, true, 'assets/images/');
-
-
       }
 
       function handleComplete() {
@@ -86,8 +85,7 @@
 
         stageDrawing.addEventListener('stagemousedown', handleMouseDown);
         stageDrawing.addEventListener('stagemouseup', handleMouseUp);
-
-
+        
       }
 
       function handleMouseDown(event) {

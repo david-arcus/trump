@@ -64,11 +64,7 @@
 
         manifest = [
           {id: 'hairCurlyBrunette', src:'hair_curly_brunette.png'},
-          //{id: 'hairCurlyBlonde', src:'hair_curly_blonde.png'},
           {id: 'hairCurlyGinger', src:'hair_curly_ginger.png'},
-          // {id: 'hairStubblyBrunette', src:'hair_stubbly_brunette.png'},
-          // {id: 'hairStubblyBlonde', src:'hair_stubbly_blonde.png'},
-          // {id: 'hairStubblyGinger', src:'hair_stubbly_ginger.png'},
           {id: 'don', src:'don_bald.png'}
         ];
 
@@ -83,11 +79,7 @@
 
         don = new createjs.Bitmap(loader.getResult('don'));
         hairCurlyBrunette = new createjs.Bitmap(loader.getResult('hairCurlyBrunette'));
-        //hairCurlyBlonde = new createjs.Bitmap(loader.getResult('hairCurlyBlonde'));
         hairCurlyGinger = new createjs.Bitmap(loader.getResult('hairCurlyGinger'));
-        // hairStubblyBrunette = new createjs.Bitmap(loader.getResult('hairStubblyBrunette'));
-        // hairStubblyBlonde = new createjs.Bitmap(loader.getResult('hairStubblyBlonde'));
-        // hairStubblyGinger = new createjs.Bitmap(loader.getResult('hairStubblyGinger'));
 
         stageStatic.addChild(don);
         stageStatic.update();

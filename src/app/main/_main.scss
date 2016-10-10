@@ -6,10 +6,6 @@ div.modal-bg {
   position:fixed;
   background-color: rgba(0,0,0,0);
 
-  &.ng-scope {
-     background-color: rgba(0,0,0,0.5);
-  }
-
   div.modal {
     box-sizing: border-box;
     padding:10px;
@@ -23,6 +19,24 @@ div.modal-bg {
     background-color:#fff;
     border:1px solid grey;
 
+  }
+
+}
+
+.container {
+
+  position: relative;
+  max-width: 690px;
+  margin: 0px auto;
+
+  .share {
+    position:absolute;
+    width:100px;
+    text-align: center;
+    left:50%;
+    bottom:50px;
+    z-index:2;
+    transform:translateX(-50%);
   }
 
 }

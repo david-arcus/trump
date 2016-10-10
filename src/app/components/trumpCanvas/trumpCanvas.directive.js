@@ -82,8 +82,6 @@
       function handleComplete() {
 
         don = new createjs.Bitmap(loader.getResult('don'));
-        don.scaleX = 0.5;
-        don.scaleY = 0.5;
         hairCurlyBrunette = new createjs.Bitmap(loader.getResult('hairCurlyBrunette'));
         //hairCurlyBlonde = new createjs.Bitmap(loader.getResult('hairCurlyBlonde'));
         hairCurlyGinger = new createjs.Bitmap(loader.getResult('hairCurlyGinger'));

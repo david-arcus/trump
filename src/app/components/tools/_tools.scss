@@ -16,8 +16,21 @@
     .tool {
       cursor:pointer;
       padding:10px 0px;
+      
+      img {
+        width:60%;
+        height:auto;
+        margin-bottom:6px;
+      }
     }
 
+  }
+  
+  @media screen and (max-width: 599px) {
+    .tools {
+      font-size:7px;
+      width:40px;
+    }
   }
 
 }

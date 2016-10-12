@@ -12,32 +12,114 @@
     text-transform: uppercase;
     font-size: 10px;
     color:#fff;
+    
+    @media screen and (max-width: 711px) {
+      
+      background-color: rgba(0, 0, 0, 0.6);
+
+    }
+    
+    @media screen and (max-width: 599px) {
+
+      width:40px;
+      padding:2px;
+      font-size:7px;
+      
+      .curly, .stubbly {
+        display:none;
+      }
+      
+    }
 
     p {
       margin:0;
 
       &.hair-caption {
         font-size:8px;
+        
+        @media screen and (max-width: 599px) {
+          font-size:7px;
+        }
 
         &.top {
           margin-top:-5px;
           margin-bottom:160px;
+          
+          @media screen and (max-width: 599px) {
+            margin-top:3px;
+            margin-bottom:112px; 
+          }
         }
+        
       }
 
       &.hair-colour {
         margin-bottom:5px;
+        
+        @media screen and (max-width: 599px) {
+          margin-top: 7px;
+        }
+        
       }
+      
     }
 
     .clear-hair {
-      margin:20px auto 0px auto;
+      margin:-10px auto 0 auto;
     }
     img {
       width:70%;
       height:auto;
     }
 
+    // radio stuff - courtesy of http://www.designcouch.com/home/why/2013/05/13/styling-form-radio-buttons/
+    
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      -moz-opacity: 0;
+      -webkit-opacity: 0;
+      -o-opacity: 0;
+    }
+
+    input[type="radio"] + label {
+      position: relative;
+      display:block;
+      font-size: 10px;
+      margin: 0 0 42px 0;
+      text-align: center;
+      
+      @media screen and (max-width: 599px) {
+        font-size: 7px;
+      }
+    }
+
+    input[type="radio"] + label:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 16px;
+      left:13px;
+      height: 30px;
+      width: 30px;
+      background: white;
+      //border: 1px solid gray;
+      box-shadow: inset 0px 0px 0px 4px white;
+      border-radius: 30px;
+      
+      @media screen and (max-width: 599px) {
+      
+        top: 12px;
+        left: 3px;
+        
+      }
+      
+    }
+
+    input[type="radio"]:checked + label:before {
+      background: #115fff;
+    }
+    
     // range stuff - courtesy of http://danielstern.ca/range.css/
 
     input[type="range"] {
@@ -46,12 +128,21 @@
       left:-39px;
       transform: rotate(270deg);
       width:210%;
+      
+      @media screen and (max-width: 599px) {
+        top: 69px;
+        left: -27px;
+        transform: rotate(270deg);
+        width: 234%;
+      }
+      
     }
 
     input[type=range] {
       -webkit-appearance: none;
       //width: 100%;
       margin: 10px 0;
+      background-color:transparent;
     }
     input[type=range]:focus {
       outline: none;
@@ -60,13 +151,10 @@
       width: 100%;
       height: 10px;
       cursor: pointer;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-      background: rgba(0, 0, 0, 0.36);
-      border-radius: 1.3px;
-      border: 0.2px solid rgba(0, 0, 0, 0.04);
+      background: rgba(255, 255, 255, 0.36);
+      border-radius: 5px;
     }
     input[type=range]::-webkit-slider-thumb {
-      box-shadow: 0px 0px 0px rgba(0, 0, 49, 0), 0px 0px 0px rgba(0, 0, 75, 0);
       border: 1px solid rgba(0, 0, 0, 0.36);
       height: 30px;
       width: 30px;
@@ -83,13 +171,10 @@
       width: 100%;
       height: 10px;
       cursor: pointer;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-      background: rgba(0, 0, 0, 0.36);
-      border-radius: 1.3px;
-      border: 0.2px solid rgba(0, 0, 0, 0.04);
+      background: rgba(255, 255, 255, 0.36);
+      border-radius: 5px;
     }
     input[type=range]::-moz-range-thumb {
-      box-shadow: 0px 0px 0px rgba(0, 0, 49, 0), 0px 0px 0px rgba(0, 0, 75, 0);
       border: 1px solid rgba(0, 0, 0, 0.36);
       height: 30px;
       width: 30px;
@@ -109,16 +194,13 @@
       background: rgba(0, 0, 0, 0.36);
       border: 0.2px solid rgba(0, 0, 0, 0.04);
       border-radius: 2.6px;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
     }
     input[type=range]::-ms-fill-upper {
       background: rgba(0, 0, 0, 0.36);
       border: 0.2px solid rgba(0, 0, 0, 0.04);
       border-radius: 2.6px;
-      box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
     }
     input[type=range]::-ms-thumb {
-      box-shadow: 0px 0px 0px rgba(0, 0, 49, 0), 0px 0px 0px rgba(0, 0, 75, 0);
       border: 1px solid rgba(0, 0, 0, 0.36);
       height: 30px;
       width: 30px;

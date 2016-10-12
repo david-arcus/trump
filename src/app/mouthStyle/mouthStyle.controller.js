@@ -3,10 +3,10 @@
 
   angular
     .module('trump')
-    .controller('HairStyleController', HairStyleController);
+    .controller('MouthStyleController', MouthStyleController);
 
   /** @ngInject */
-  function HairStyleController($log, $rootScope, close) {
+  function MouthStyleController($log, $rootScope, close) {
     
     var vm = this;
    
@@ -16,19 +16,19 @@
       
     };
 
-    vm.addHairStyle = function(hairStyle) {
+    vm.addMouthStyle = function(mouthStyle) {
       
-      $log.debug(hairStyle);
+      $log.debug(mouthStyle);
       
       // http://stackoverflow.com/questions/11252780/whats-the-correct-way-to-communicate-between-controllers-in-angularjs/19498009#19498009
       
-      $rootScope.$emit('hairStyle', hairStyle);
+      $rootScope.$emit('mouthStyle', mouthStyle);
       vm.closeModal();
       
     };
     
-    vm.removeHairStyle = function() {
-      $rootScope.$emit('removeHairStyle', true);
+    vm.removeMouthStyle = function() {
+      $rootScope.$emit('removeMouthStyle', true);
       vm.closeModal(); 
     }
 

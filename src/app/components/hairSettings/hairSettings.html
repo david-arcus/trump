@@ -1,14 +1,14 @@
 <div class="hair-settings">
 <form name="hairSettings">
-  <p class="length">Hair length</p>
+  <p class="length">Hair length:</p>
   <div class="curly"><img src="assets/images/curly.png" /></div>
   <p class="hair-caption top">Curly</p>
   <input type="range" min="0.3" max="0.9" step="0.05" ng-model="vm.hairLength" />
   <p class="hair-caption">Stubbly</p>
   <div class="stubbly"><img src="assets/images/stubbly.png" /></div>
-  <p class="hair-colour">Hair colour</p>
-  <input type="radio" name="hairColour" value="brunette" id="brunette" ng-model="vm.hairColour"><br /><label for="brunette">Brunette</label>
-  <input type="radio" name="hairColour" value="ginger" id="ginger" ng-model="vm.hairColour"><br /><label for="ginger">Ginger</label>
+  <p class="hair-colour">Hair colour:</p>
+  <input type="radio" name="hairColour" value="brunette" id="brunette" ng-model="vm.hairColour"><label for="brunette">Brunette</label>
+  <input type="radio" name="hairColour" value="ginger" id="ginger" ng-model="vm.hairColour"><label for="ginger">Ginger</label>
   <br />
   <div class="clear-hair" ng-click="vm.clearHair()">
     <p>Clear hair</p>

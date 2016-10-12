@@ -29,8 +29,6 @@
             
       vm.showHairStyles = function() {
         
-        $log.debug('hairstyles');
-
         ModalService.showModal({
           templateUrl: 'app/hairStyle/hairStyle.html',
           controller: 'HairStyleController',
@@ -43,15 +41,32 @@
         });
 
       };
-
-      vm.showDrawModal = function() {
-
+      
+      vm.showMouthStyles = function() {
+        
         ModalService.showModal({
-          templateUrl: 'templates/draw.html',
-          controller: 'DrawController'
+          templateUrl: 'app/mouthStyle/mouthStyle.html',
+          controller: 'MouthStyleController',
+          controllerAs: 'mouthStyle'
         }).then(function(modal) {
-          modal.close.then(function() {
 
+          modal.close.then(function() {
+            //$log.debug('modal promise');
+          });
+        });
+
+      };
+      
+      vm.showEyeStyles = function() {
+        
+        ModalService.showModal({
+          templateUrl: 'app/eyeStyle/eyeStyle.html',
+          controller: 'EyeStyleController',
+          controllerAs: 'eyeStyle'
+        }).then(function(modal) {
+
+          modal.close.then(function() {
+            //$log.debug('modal promise');
           });
         });
 

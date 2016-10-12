@@ -6,6 +6,17 @@
   <div class="share" ng-click="main.share()">Share</div>
 </div>
 
-<!-- <tools></tools> -->
+<div class="loading" ng-show="main.loading">
+  
+  <div class="loader"></div>
+
+</div>
+
+<div class="share modal" ng-show="main.uploaded">
+
+  <a class="item" ng-href="{{main.sharePath}}" target="_blank">Download</a>
+  <p class="item" ng-click="main.shareFacebook()">Share on Facebook</p>
+
+</div>
 
 <div ng-include src="'app/includes/footer.html'"></div>

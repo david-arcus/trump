@@ -1,16 +1,19 @@
 <div class="modal-bg">
 
   <div class="modal hair">
+    
+    <div class="close" ng-click="hairStyle.closeModal()"></div>
 
-    <p>choose hair:</p>
+    <p class="choose">Choose a hairstyle:</p>
+    
+    <p class="item" ng-click="hairStyle.removeHairStyle()">Bald</p>
+    <p class="item" ng-click="hairStyle.addHairStyle('hairGursling')">Ryan Gursling</p>
+    <p class="item" ng-click="hairStyle.addHairStyle('hairHallary')">Hallary Clinton</p>
+    <p class="item" ng-click="hairStyle.addHairStyle('hairLernal')">Lernal Richie</p>
+    <p class="item" ng-click="hairStyle.addHairStyle('hairOrlundo')">Orlundo Bloom</p>
+    <p class="item" ng-click="hairStyle.addHairStyle('hairPowell')">Simon Powell</p>
+    <p class="item" ng-click="hairStyle.addHairStyle('hairFirrel')">Will Firrel</p>      
 
-    <span class="hair-type pointer" ng-click="hairStyle.addHairToCanvas(1)">Brad</span>
-    <span class="hair-type pointer" ng-click="hairStyle.addHairToCanvas(2)">Simon</span>
-    <span class="hair-type pointer" ng-click="hairStyle.addHairToCanvas(3)">Ellen</span>
-
-    <br />
-
-    <small class="pointer" ng-click="hairStyle.closeModal()">close</small>
 
   </div>
   

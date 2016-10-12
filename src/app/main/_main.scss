@@ -13,7 +13,7 @@ div.modal {
   text-transform: uppercase;
   min-width:300px;
   z-index:3;
-  
+
   .close {
     position: absolute;
     top:10px;
@@ -24,14 +24,14 @@ div.modal {
     background-size:40px 40px;
     cursor:pointer;
   }
-  
+
   p.choose {
-    
+
     letter-spacing: 4px;
     margin-top:0px;
     font-size:16px;
   }
-  
+
   a.item, p.item {
     cursor:pointer;
     padding:6px 10px;
@@ -40,12 +40,12 @@ div.modal {
     letter-spacing: 1px;
     font-size:14px;
   }
-  
+
   a.item {
     color:#fff;
     text-decoration: none;
   }
-  
+
   p:last-child {
     margin-bottom:0px;
   }
@@ -56,6 +56,47 @@ div.modal {
   position: relative;
   max-width: 690px;
   margin: 0px auto;
+
+  .fb-like-container {
+    position: absolute;
+    top:-25px;
+    left:0px;
+  }
+
+  .instructions {
+    text-transform: uppercase;
+    font-size:10px;
+    display:block;
+    right:0px;
+    top:-17px;
+    position: absolute;
+
+    .interaction-mobile {
+      display:none;
+    }
+
+    @media screen and (max-width: 723px) {
+      .interaction-mobile {
+        display:inline;
+      }
+
+      .interaction-desktop {
+        display:none;
+      }
+
+    }
+
+  }
+
+  @media screen and (max-width: 659px) {
+
+    .instructions {
+      width:80px;
+      font-size:7px;
+      text-align: right;
+      top:-21px;
+    }
+  }
 
   .share {
     cursor: pointer;

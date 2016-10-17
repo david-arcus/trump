@@ -12,6 +12,7 @@
     text-transform: uppercase;
     font-size: 10px;
     color:#fff;
+    z-index:2;
     
     @media screen and (max-width: 711px) {
       
@@ -22,6 +23,7 @@
     @media screen and (max-width: 599px) {
 
       width:40px;
+      max-height:320px;
       padding:2px;
       font-size:7px;
       
@@ -47,7 +49,7 @@
           
           @media screen and (max-width: 599px) {
             margin-top:3px;
-            margin-bottom:112px; 
+            margin-bottom:109px; 
           }
         }
         
@@ -70,6 +72,10 @@
     img {
       width:70%;
       height:auto;
+      
+      @media screen and (max-width: 599px) {
+        width:50%;
+      }
     }
 
     // radio stuff - courtesy of http://www.designcouch.com/home/why/2013/05/13/styling-form-radio-buttons/
@@ -86,7 +92,7 @@
       position: relative;
       display:block;
       font-size: 10px;
-      margin: 0 0 42px 0;
+      margin: 0 0 36px 0;
       text-align: center;
       
       @media screen and (max-width: 599px) {
@@ -99,18 +105,18 @@
       display: block;
       position: absolute;
       top: 16px;
-      left:13px;
-      height: 30px;
-      width: 30px;
+      left:14px;
+      height: 28px;
+      width: 28px;
       background: white;
       //border: 1px solid gray;
       box-shadow: inset 0px 0px 0px 4px white;
-      border-radius: 30px;
+      border-radius: 28px;
       
       @media screen and (max-width: 599px) {
       
         top: 12px;
-        left: 3px;
+        left: 4px;
         
       }
       
@@ -142,7 +148,9 @@
       -webkit-appearance: none;
       //width: 100%;
       margin: 10px 0;
-      background-color:transparent;
+      //background-color:transparent;
+      background-color:rgb(144, 144, 144);
+      border-radius:5px;
     }
     input[type=range]:focus {
       outline: none;
@@ -151,7 +159,7 @@
       width: 100%;
       height: 10px;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.36);
+      background-color:rgb(144, 144, 144);
       border-radius: 5px;
     }
     input[type=range]::-webkit-slider-thumb {
@@ -165,13 +173,13 @@
       margin-top: -10.2px;
     }
     input[type=range]:focus::-webkit-slider-runnable-track {
-      background: rgba(51, 51, 51, 0.36);
+      background-color:rgb(144, 144, 144);
     }
     input[type=range]::-moz-range-track {
       width: 100%;
       height: 10px;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.36);
+      background-color:rgb(144, 144, 144);
       border-radius: 5px;
     }
     input[type=range]::-moz-range-thumb {
@@ -186,9 +194,9 @@
       width: 100%;
       height: 10px;
       cursor: pointer;
-      background: transparent;
+      background-color:rgb(144, 144, 144);
       border-color: transparent;
-      color: transparent;
+      color: rgb(144, 144, 144);
     }
     input[type=range]::-ms-fill-lower {
       background: rgba(0, 0, 0, 0.36);

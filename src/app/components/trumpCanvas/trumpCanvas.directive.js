@@ -133,11 +133,12 @@
       function init() {
 
         stageStatic             = new createjs.Stage('the-don');
-        stageDrawing            = new createjs.Stage('the-don');
+        stageDrawing            = new createjs.Stage('the-hair');
+        
         stageDrawing.autoClear  = false;
         
-
         createjs.Touch.enable(stageDrawing, stageStatic);
+
 
         // load our initial assets
 

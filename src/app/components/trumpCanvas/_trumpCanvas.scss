@@ -1,5 +1,5 @@
 .canvas-container {
-  margin:0px auto 50px auto;
+  margin:0px auto 30px auto;
   width:690px;
   position:relative;
 
@@ -7,7 +7,7 @@
     cursor:pointer;
   }
 
-  canvas#the-don {
+  #the-don {
     margin:0px auto;
     //border:1px solid grey;
     display:block;
@@ -15,6 +15,15 @@
     background-color:rgba(255,255,255,0.3);
     //background-size:100% auto;
   }
+  
+  #the-hair {
+    top:0px;
+    left:70px;
+    position: absolute;
+    width:550px;
+    height:586px;
+  }
+  
 
 }
 
@@ -23,9 +32,14 @@
   .canvas-container {
     width:100%;
 
-    canvas#the-don {
+    #the-don, #the-hair {
       width:100%;
       height:auto;
+    }
+    
+    #the-hair {
+      margin-left:0px;
+      left:0px;
     }
 
   }

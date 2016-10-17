@@ -13,6 +13,10 @@ div.modal {
   text-transform: uppercase;
   min-width:300px;
   z-index:3;
+  
+  &.share {
+    padding:40px;
+  }
 
   .close {
     position: absolute;
@@ -68,6 +72,8 @@ div.modal {
     font-size:10px;
     display:block;
     right:0px;
+    margin:0;
+    padding:0;
     top:-17px;
     position: absolute;
 
@@ -91,8 +97,9 @@ div.modal {
   @media screen and (max-width: 659px) {
 
     .instructions {
-      width:80px;
-      font-size:7px;
+      width:90px;
+      font-size:8px;
+      line-height:8px;
       text-align: right;
       top:-21px;
     }
@@ -113,6 +120,7 @@ div.modal {
     transform:translateX(-50%);
 	  font-family: Georgia, Times, "Times New Roman", serif;
     box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.49);
+    
 
   }
 

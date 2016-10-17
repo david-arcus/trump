@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('trump', ['ngTouch', 'ngSanitize', 'ngRoute', 'angularModalService', 'facebook']);
+    .module('trump', ['ngTouch', 'ng-fastclick', 'ngRoute', 'angularModalService', 'facebook']);
 
 })();

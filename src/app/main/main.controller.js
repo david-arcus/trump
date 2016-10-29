@@ -18,6 +18,12 @@
       
       var imageName;
       var canvas = document.getElementById('the-don');
+      var hair = document.getElementById('the-hair');
+      var ctx = canvas.getContext("2d");
+      
+      // add hair canvas to the don canvas
+      ctx.drawImage(hair,0,0)
+      
       var image = canvas.toDataURL('image/jpeg');
 
       Api.uploadImage(image).then(function(result) {

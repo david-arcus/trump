@@ -222,9 +222,9 @@
           case('ginger'):
             brush = hairCurlyGinger;
             break;
-          // case('blonde'):
-          //   brush = hairCurlyBlonde;
-          //   break;
+          //    case('blonde'):
+          //    brush = hairCurlyBlonde;
+          //    break;
         }
 
 

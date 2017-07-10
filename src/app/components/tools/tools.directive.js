@@ -21,14 +21,18 @@
     };
 
     return directive;
-    
+
     /** @ngInject */
     function ToolsController($log, $scope, ModalService) {
-      
+
       var vm = this;
-            
+
+
       vm.showHairStyles = function() {
-        
+
+        vm.hairModalActive = true;
+
+
         ModalService.showModal({
           templateUrl: 'app/hairStyle/hairStyle.html',
           controller: 'HairStyleController',
@@ -36,14 +40,15 @@
         }).then(function(modal) {
 
           modal.close.then(function() {
+            vm.hairModalActive = false;
             //$log.debug('modal promise');
           });
         });
 
       };
-      
+
       vm.showMouthStyles = function() {
-        
+
         ModalService.showModal({
           templateUrl: 'app/mouthStyle/mouthStyle.html',
           controller: 'MouthStyleController',
@@ -56,9 +61,9 @@
         });
 
       };
-      
+
       vm.showEyeStyles = function() {
-        
+
         ModalService.showModal({
           templateUrl: 'app/eyeStyle/eyeStyle.html',
           controller: 'EyeStyleController',

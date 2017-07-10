@@ -1,12 +1,16 @@
-<div ng-include src="'app/includes/header.html'"></div>
+<!-- <div ng-include src="'app/includes/header.html'"></div> -->
 
 <div class="container">
-  <div class="fb-like-container">
+  <!-- <div class="fb-like-container">
     <div class="fb-like" data-href="http://trumpsformation.com" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
-  </div>
-  <span class="instructions">Use your <span class="interaction-mobile">finger</span><span class="interaction-desktop">mouse</span> to draw hair on Don &blacktriangledown;</span>
+  </div> -->
+  <!-- <span class="instructions">Use your <span class="interaction-mobile">finger</span><span class="interaction-desktop">mouse</span> to draw hair on Don &blacktriangledown;</span> -->
   <trump-canvas></trump-canvas>
-  <div class="share" ng-click="main.share()">Share</div>
+  <!-- <div class="share" ng-click="main.share()">Share</div> -->
+
+  <div class="save" ng-click="main.share()"><img src="assets/images/save.png" /></div>
+  
+
 </div>
 
 <div class="loading" ng-show="main.loading">
@@ -14,7 +18,7 @@
   <div class="loader"></div>
 
 </div>
-
+<!--
 <div class="share modal" ng-show="main.uploaded">
 
   <div class="close" ng-click="main.uploaded = false"></div>
@@ -22,6 +26,8 @@
   <a class="item" ng-href="{{main.sharePath}}" target="_blank">Download</a>
   <p class="item" ng-click="main.shareFacebook()">Share on Facebook</p>
 
-</div>
+</div> -->
 
-<div ng-include src="'app/includes/footer.html'"></div>
+
+
+<!-- <div ng-include src="'app/includes/footer.html'"></div> -->

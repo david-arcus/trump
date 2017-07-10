@@ -1,22 +1,29 @@
-<div class="hair-settings">
-<form name="hairSettings">
-  <p class="length">Hair length:</p>
-  <div class="curly"><img src="assets/images/curly.png" /></div>
-  <p class="hair-caption top">Curly</p>
-  <input type="range" min="0.3" max="0.9" step="0.05" ng-model="vm.hairLength" />
-  <p class="hair-caption">Stubbly</p>
-  <div class="stubbly"><img src="assets/images/stubbly.png" /></div>
-  <p class="hair-colour">Hair colour:</p>
-  <input type="radio" name="hairColour" value="brunette" id="brunette" ng-model="vm.hairColour"><label for="brunette">Brunette</label>
-  <input type="radio" name="hairColour" value="ginger" id="ginger" ng-model="vm.hairColour"><label for="ginger">Ginger</label>
-  <br />
-  <div class="clear-hair" ng-click="vm.clearHair()">
-    <p>Clear hair</p>
-    <img src="assets/images/clear-hair.svg" />
-  </div>
-  <!-- {{vm.hairSize}}
-  {{vm.hairType}}
-  {{vm.hairColour}} -->
+<div class="clear" ng-click="vm.clearHair()"><img src="assets/images/clear.png" /></div>
 
-</form>
+<div class="hair-settings">
+  <form name="hairSettings">
+    <!-- <p class="length">Hair length:</p> -->
+    <!-- <div class="curly"><img src="assets/images/curly.png" /></div> -->
+
+    <div class="hair" ng-class="{'go-red':vm.sliding}" ng-click="vm.sliding = !vm.sliding"><img src="assets/images/draw-hair.png" />&nbsp;&nbsp;&nbsp;&nbsp;Draw hair</div>
+
+    <div class="hair-slider" ng-show="vm.sliding">
+      <p class="hair-caption top">Short and stubbly</p>
+      <input type="range" min="0.3" max="0.9" step="0.05" ng-model="vm.hairLength" />
+      <p class="hair-caption">Long and curly</p>
+    </div>
+    <!-- <div class="stubbly"><img src="assets/images/stubbly.png" /></div> -->
+    <!-- <p class="hair-colour">Hair colour:</p>
+    <input type="radio" name="hairColour" value="brunette" id="brunette" ng-model="vm.hairColour"><label for="brunette">Brunette</label>
+    <input type="radio" name="hairColour" value="ginger" id="ginger" ng-model="vm.hairColour"><label for="ginger">Ginger</label>
+    <br /> -->
+    <!-- <div class="clear-hair" ng-click="vm.clearHair()">
+      <p>Clear hair</p>
+      <img src="assets/images/clear-hair.svg" />
+    </div> -->
+    <!-- {{vm.hairSize}}
+    {{vm.hairType}}
+    {{vm.hairColour}} -->
+
+  </form>
 </div>

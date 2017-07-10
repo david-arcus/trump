@@ -3,14 +3,19 @@
 // bower:scss
 // endbower
 
+@font-face {
+ font-family: "ProximaNova-Bold";
+ src: url("../assets/ProximaNova-Bold.otf");
+}
+
 html {
-  background:#003f76 url(../assets/images/bg.jpg) no-repeat bottom center fixed;
-  background-size:cover;
+  // background:#003f76 url(../assets/images/bg.jpg) no-repeat bottom center fixed;
+  // background-size:cover;
 }
 body {
   margin:0;
   padding:0;
-  font-family: sans-serif;
+  font-family: "ProximaNova-Bold";
   // overflow-x:hidden;
 }
 

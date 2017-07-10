@@ -32,6 +32,8 @@
       vm.hairType = 'curly';
       vm.hairColour = 'brunette';
 
+      vm.sliding = false;
+
       vm.clearHair = function() {
         $scope.$emit('clearHair', true);
       }

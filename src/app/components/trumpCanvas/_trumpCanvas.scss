@@ -1,6 +1,6 @@
 .canvas-container {
-  margin:0px auto 30px auto;
-  width:690px;
+  margin:0px auto;
+  width:1024px;
   position:relative;
 
   .pointer {
@@ -15,15 +15,15 @@
     background-color:rgba(255,255,255,0.3);
     //background-size:100% auto;
   }
-  
+
   #the-hair {
     top:0px;
-    left:70px;
+    left:0px;
     position: absolute;
-    width:550px;
-    height:586px;
+    width:1024px;
+    height:768px;
   }
-  
+
 
 }
 
@@ -36,7 +36,7 @@
       width:100%;
       height:auto;
     }
-    
+
     #the-hair {
       margin-left:0px;
       left:0px;

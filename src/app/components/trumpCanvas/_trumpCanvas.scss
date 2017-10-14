@@ -15,7 +15,7 @@
     background-color:rgba(255,255,255,0.3);
     //background-size:100% auto;
   }
-  
+
   #the-hair {
     top:0px;
     left:70px;
@@ -23,7 +23,51 @@
     width:550px;
     height:586px;
   }
-  
+
+  $base-line-height: 24px;
+  $white: rgb(255,255,255);
+  $off-white: rgba($white, 0.2);
+  $spin-duration: 1s;
+  $pulse-duration: 750ms;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    50% {
+      background: $white;
+    }
+  }
+
+  .asset-loading-container {
+    z-index:7;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+    .asset-loading {
+      border-radius: 50%;
+      width: $base-line-height;
+      height: $base-line-height;
+      border: .25rem solid $off-white;
+      border-top-color: $white;
+      animation: spin $spin-duration infinite linear;
+
+      &--double {
+        border-style: double;
+        border-width: .5rem;
+      }
+
+    }
+
+  }
 
 }
 
@@ -36,7 +80,7 @@
       width:100%;
       height:auto;
     }
-    
+
     #the-hair {
       margin-left:0px;
       left:0px;

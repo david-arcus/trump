@@ -2,17 +2,17 @@
   'use strict';
 
   // return an environment variable and url
-  
+
   angular
     .module('trump')
     .factory('Environment', Environment);
 
   /** @ngInject */
   function Environment($log) {
-    
+
     var environment = {
       'mode':'production',
-      'apiURL':'http://trumpsformation.us-east-1.elasticbeanstalk.com/api'
+      'apiURL':'http://dapi.us-east-1.elasticbeanstalk.com/api'
 
     };
 
@@ -20,4 +20,3 @@
   }
 
 })();
-

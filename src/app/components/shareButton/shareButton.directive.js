@@ -27,6 +27,7 @@
     function ShareButtonController($sce) {
 
       var vm = this;
+      vm.imageData;
 
       function prepareImage() {
 
@@ -48,9 +49,8 @@
       }
 
       vm.getDownload = function () {
-        var image = prepareImage();
-        // TODO: not do this...
-        document.querySelector('a.download').setAttribute('href', image);
+        vm.imageData = prepareImage();
+        
       }
 
     }

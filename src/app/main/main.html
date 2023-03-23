@@ -6,7 +6,17 @@
   </div>
   <span class="instructions">Use your <span class="interaction-mobile">finger</span><span class="interaction-desktop">mouse</span> to draw hair on Don &blacktriangledown;</span>
   <trump-canvas></trump-canvas>
-  <share-button></share-button>
+  <div class="share" ng-click="main.share()">Share</div>
+</div>
+
+<div class="share modal" ng-show="main.sharing">
+
+  <p class="choose bottom-margin">Trumpsformed:</p>
+
+  <div class="close" ng-click="main.sharing = false"></div>
+
+  <a class="item" ng-href="{{main.download}}" download="trumpsformation.jpg">Download image</a>
+
 </div>
 
 <div ng-include src="'app/includes/footer.html'"></div>

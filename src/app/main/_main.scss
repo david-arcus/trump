@@ -34,6 +34,10 @@ div.modal {
     letter-spacing: 4px;
     margin-top:0px;
     font-size:16px;
+
+    &.bottom-margin {
+      margin-bottom:30px;
+    }
   }
 
   a.item, p.item {

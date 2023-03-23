@@ -2,9 +2,11 @@
 Give Don the change he needs
 
 use node 8 with nvm
+
 `nvm use 8`
 
 install dependencies
+
 `npm i`
 
 install bower and gulp if you haven't already

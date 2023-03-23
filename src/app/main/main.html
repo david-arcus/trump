@@ -9,18 +9,13 @@
   <div class="share" ng-click="main.share()">Share</div>
 </div>
 
-<div class="loading" ng-show="main.loading">
+<div class="share modal" ng-show="main.sharing">
 
-  <div class="loader"></div>
+  <p class="choose bottom-margin">Trumpsformed:</p>
 
-</div>
+  <div class="close" ng-click="main.sharing = false"></div>
 
-<div class="share modal" ng-show="main.uploaded">
-
-  <div class="close" ng-click="main.uploaded = false"></div>
-
-  <a class="item" ng-href="{{main.sharePath}}" target="_blank">Download</a>
-  <p class="item" ng-click="main.shareFacebook()">Share on Facebook</p>
+  <a class="item" ng-href="{{main.download}}" download="trumpsformation.jpg">Download image</a>
 
 </div>
 

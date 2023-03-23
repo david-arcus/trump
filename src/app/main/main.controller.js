@@ -6,51 +6,38 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($log, ModalService, Facebook, Api) {
+  function MainController($sce) {
 
     var vm = this;
-    var shareImage;
-    
-    vm.uploaded = false;
-    vm.share = function() {
-      
-      vm.loading = true;
-      
-      var imageName;
+
+    function prepareImage() {
+
+      // TODO: make into directive
       var canvas = document.getElementById('the-don');
       var hair = document.getElementById('the-hair');
-      var ctx = canvas.getContext("2d");
-      
+      var output = document.createElement('canvas');
+
+      output.width = canvas.width;
+      output.height = canvas.height;
+
+      var ctx = output.getContext("2d");
+
       // add hair canvas to the don canvas
-      ctx.drawImage(hair,0,0)
-      
-      var image = canvas.toDataURL('image/jpeg');
+      ctx.drawImage(canvas, 0, 0)
+      ctx.drawImage(hair, 0, 0)
 
-      Api.uploadImage(image).then(function(result) {
+      return $sce.trustAsResourceUrl(output.toDataURL('image/jpeg', 0.8));
 
-        vm.loading = false;
-        vm.uploaded = true;
-        
-        $log.debug(result.data);
-
-        shareImage = result.data.image_path;
-        
-        vm.sharePath = result.data.image_path;
-        
-        
-
-      });
-    
     }
     
-    vm.shareFacebook = function() {
-      FB.ui({
-        method: 'feed',
-        link: 'http://www.trumpsformation.com',
-        caption: 'Trumpsformation',
-        description: 'Give Don the hair he needs.',
-        picture: vm.sharePath
-      }, function(response){});
+    vm.share = function() {
+      
+      vm.sharing = true;
+      
+      var image = prepareImage();
+        
+      vm.download = image;
+            
     }
 
   }
